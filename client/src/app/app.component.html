@@ -1,11 +1,11 @@
 <div class="form-group">
   <label for="file">Choose File</label>
   <input type="file"
+         #fileInput
          accept="image/*,image/gif"
          id="file"
          (change)="handleFileInput($event.target.files)">
-  <button (click)="uploadFileToActivity()">Отправить </button>
-  <div *ngIf="fileToUpload">
-    <img  fileToUpload alt="Girl in a jacket" width="500" height="600">
-  </div>
+  <button *ngIf="imgURL" (click)="uploadFileToActivity()">Отправить </button>
+  <button *ngIf="imgURL" (click)="clearFileInput()">Отмена </button>
+  <img [src]="imgURL" height="200" *ngIf="imgURL">
 </div>
