@@ -6,7 +6,7 @@ const logger = require('morgan');
 const cors = require('cors')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const gifRouter = require('./routes/router.gif');
+const gifRouter = require('./routes/image.router');
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
