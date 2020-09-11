@@ -30,8 +30,6 @@ const upload = multer({
 
         const extname = filetypes.test(path.extname(
             file.originalname).toLowerCase());
-        console.log(path.extname(
-            file.originalname).toLowerCase())
         if (mimetype && extname) {
             return cb(null, true);
         }
@@ -48,10 +46,13 @@ router.post("/", function (req, res) {
     upload(req, res, function (err) {
         if (err instanceof multer.MulterError) {
             console.log(err)
+            res.sendStatus(500)
+
         } else if (err) {
             console.log(err)
+            res.sendStatus(500)
         }
-        res.sendStatus(200)
+        res.status(201).json("success")
     })
 })
 

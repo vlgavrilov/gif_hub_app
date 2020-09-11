@@ -7,8 +7,6 @@ const cors = require('cors')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const gifRouter = require('./routes/router.gif');
-const busboy = require('connect-busboy')
-
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -20,7 +18,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
-app.use(busboy());
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/v1/gif', gifRouter);
