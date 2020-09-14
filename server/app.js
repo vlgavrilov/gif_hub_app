@@ -5,7 +5,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors')
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth.routes');
+
 const gifRouter = require('./routes/image.router');
 const app = express();
 
@@ -21,7 +22,7 @@ app.use(cors());
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/auth', authRouter);
 app.use('/api/v1/gif', gifRouter);
 
 
